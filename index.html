@@ -1,1 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Bando Services</title>
+  <style>
+    /* --- Reset & Base --- */
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      font-family: Arial, sans-serif;
+      background: linear-gradient(135deg, #0a0a0f, #0d1b2a);
+      color: white;
+      overflow-x: hidden;
+    }
+    h1, h2, h3 { font-weight: 700; }
+    a { color: #4ea8de; text-decoration: none; }
 
+    /* --- Loader --- */
+    #loader {
+      position: fixed;
+      top: 0; left: 0; width: 100%; height: 100%;
+      background: #0a0a0f;
+      display: flex; align-items: center; justify-content: center;
+      flex-direction: column;
+      z-index: 1000;
+    }
+    .spinner {
+      border: 4px solid #1b263b;
+      border-top: 4px solid #4ea8de;
+      border-radius: 50%;
+      width: 60px; height: 60px;
+      animation: spin 1s linear infinite;
+    }
+    @keyframes spin { 100% { transform: rotate(360deg); } }
+
+    /* --- Container --- */
+    .container { max-width: 900px; margin: 0 auto; padding: 2rem; }
+
+    header {
+      text-align: center;
+      padding: 3rem 1rem 2rem;
+    }
+    header h1 { font-size: 2.5rem; color: #4ea8de; }
+
+    .services {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 1.5rem;
+      margin-top: 2rem;
+    }
+    .card {
+      background: rgba(255,255,255,0.05);
+      border-radius: 12px;
+      padding: 1.5rem;
+      transition: transform 0.3s ease, background 0.3s ease;
+    }
+    .card:hover {
+      transform: translateY(-5px);
+      background: rgba(255,255,255,0.1);
+    }
+    .card h3 { margin-bottom: 0.5rem; color: #4ea8de; }
+
+    .contact {
+      margin-top: 3rem;
+      text-align: center;
+      font-size: 1.1rem;
+    }
+    .contact strong { color: #4ea8de; cursor: pointer; }
+
+    footer {
+      text-align: center;
+      margin-top: 3rem;
+      padding: 1rem;
+      font-size: 0.9rem;
+      color: #aaa;
+    }
+  </style>
+</head>
+<body>
+  <!-- Loader -->
+  <div id="loader">
+    <div class="spinner"></div>
+    <p style="margin-top: 1rem;">Loading Bando Services...</p>
+  </div>
+
+  <div class="container" style="display:none;">
+    <header>
+      <h1>Bando Services</h1>
+      <p>Your one-stop solution for Discord server growth, automation & management.</p>
+    </header>
+
+    <section>
+      <h2>What I Offer</h2>
+      <div class="services">
+        <div class="card">
+          <h3>Automation & Bots</h3>
+          <p>Custom bot setup, auto-mod, automations, ticket systems, logging and more.</p>
+        </div>
+        <div class="card">
+          <h3>Server Management</h3>
+          <p>Full management: roles, channels, categories, permissions, security setup.</p>
+        </div>
+        <div class="card">
+          <h3>Moderation Systems</h3>
+          <p>Strike systems, mute/ban automation, reporting tools, anti-spam protection.</p>
+        </div>
+        <div class="card">
+          <h3>Marketing & Growth</h3>
+          <p>Creative marketing ideas, how to advertise, promote and grow your Discord.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="contact">
+      <p>Interested? DM me on Discord: <strong id="discord">@npxl</strong></p>
+      <p><em>Pricing is discussed in DMs.</em></p>
+    </section>
+
+    <footer>
+      <p>© 2025 Bando Services — Built for Discord communities</p>
+    </footer>
+  </div>
+
+  <script>
+    // Loader effect
+    window.addEventListener("load", () => {
+      document.getElementById("loader").style.display = "none";
+      document.querySelector(".container").style.display = "block";
+    });
+
+    // Click to copy Discord name
+    document.getElementById("discord").addEventListener("click", () => {
+      navigator.clipboard.writeText("npxl");
+      alert("Copied @npxl to clipboard!");
+    });
+  </script>
+</body>
+</html>
